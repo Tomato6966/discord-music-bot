@@ -1,4 +1,4 @@
-# discord music bot
+# Discord Music Bot
 
 In This tutorial Series I am explaining you how to do an advanced Music Bot in Discord, using the Distube Package
 
