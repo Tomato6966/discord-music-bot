@@ -10,7 +10,9 @@ After that i will cover some more backend stuff, like adding reactions, filters,
 
 # TUTORIAL LISTS
 
-- **1. BASICS - play - skip - stop ...** [Click here for the Video](https://youtu.be/tF2hYHW3H4w)
+- **1. BASICS - play - skip - stop ...** 
+
+    - |- [Click here for the Video](https://youtu.be/tF2hYHW3H4w)
 
     - |- Source Code: [Click Here]()
 
