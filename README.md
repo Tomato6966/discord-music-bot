@@ -61,3 +61,18 @@ Like For games..
 
 **Website:**
 [mc-host24.de](https://mc-host24.de/user/affiliate/3121])
+
+# DISCORD BOTS
+
+You can always Support me by inviting one of my **own Discord Bots**
+
+[![Musicium Music Bot](https://cdn.discordapp.com/attachments/742446682381221938/770055673965707264/test1.png)](https://musicium.eu)
+[![Milrato Multi Bot](https://cdn.discordapp.com/attachments/742446682381221938/770056826724679680/test1.png)](https://milrato.eu)
+
+[OTHER BOTS](https://bots.musicium.eu)
+
+[| fork my repository  |](https://github.com/user/repository/fork)
+[watch this repo  |](https://github.com/user/repository/subscription)
+[create issue |](https://github.com/user/repository/issues/new)
+
+*Both bots are still in Development, and will always be in development, this means always uptodate and always online and always improving!*
