@@ -8,6 +8,24 @@ First I will explain in several videos how to do specific Commands from skip to 
 
 After that i will cover some more backend stuff, like adding reactions, filters, how to use cookies, spotify playlist supports etc. etc.
 
+## Installation | How to use the Bot
+
+ **1.** Install [node.js v12+](https://nodejs.org/api/cli.html#cli_unhandled_rejections_mode) or higher
+
+ **2.** Download this repo and unzip it    |    or git clone it
+
+ **3.** Install all of the packages with **`npm install`**
+
+ **4** Fill in the parameters, RIGHT in `./botconfig/config.json`!
+
+ **5.** start the bot with **`node index.js`**
+
+#### **NOTE:**
+
+*If you are having errors/problems with starting delete the package.json file and do, before you install the packages `npm init`*
+
+*MAKE SURE THAT THE BOT HAS ADMIN*
+
 # TUTORIAL LISTS
 
 - **1. BASICS - play - skip - stop ...** 
