@@ -1,14 +1,14 @@
 const { MessageEmbed } = require("discord.js");
 const config = require("../../botconfig/config.json");
 const ee = require("../../botconfig/embed.json");
-const { format } = require("../../handlers/functions")
+const { format, createBar } = require("../../handlers/functions")
 module.exports = {
-    name: "seek",
+    name: "nowplaying",
     category: "Music",
-    aliases: [""],
+    aliases: ["np"],
     cooldown: 4,
-    useage: "seek <Pos. in Seconds>",
-    description: "Seek to a position in the track <Seconds>",
+    useage: "nowplaying",
+    description: "Shows current Track information",
     run: async (client, message, args, cmduser, text, prefix) => {
     try{
       const { channel } = message.member.voice; // { message: { member: { voice: { channel: { name: "Allgemein", members: [{user: {"username"}, {user: {"username"}] }}}}}
@@ -32,30 +32,20 @@ module.exports = {
           .setTitle(`❌ ERROR | Please join **my** Channel first`)
           .setDescription(`Channelname: \`${message.guild.me.voice.channel.name}\``)
         );
-      if(!args[0])
-        return message.channel.send(new MessageEmbed()
-          .setColor(ee.wrongcolor)
-          .setFooter(ee.footertext, ee.footericon)
-          .setTitle(`❌ ERROR | You didn't provided a Time you want to seek to!`)
-          .setDescription(`Usage: \`${prefix}seek 10\``)
-        )
-
-      let seektime = Number(args[0]);
-
-      if(seektime < 0)
-        seektime = 0;
-
-      if(seektime >= client.distube.getQueue(message).songs[0].duration)
-        seektime = client.distube.getQueue(message).songs[0].duration - 1;
-
-      client.distube.seek(message, seektime*1000);
-
+      let queue = client.distube.getQueue(message);
+      let track = queue.songs[0];
+      console.log(track)
       message.channel.send(new MessageEmbed()
         .setColor(ee.color)
         .setFooter(ee.footertext,ee.footericon)
-        .setTitle(`⏩ Seeking to: ${format(seektime)}`)
+        .setTitle(`Now playing :notes: ${track.name}`.substr(0, 256))
+        .setURL(track.url)
+        .setThumbnail(track.thumbnail)
+        .addField("Views", `▶ ${track.views}`,true)
+        .addField("Dislikes", `:thumbsdown: ${track.dislikes}`,true)
+        .addField("Likes", `:thumbsup: ${track.likes}`,true)
+        .addField("Duration: ", createBar(queue.currentTime))
       ).then(msg=>msg.delete({timeout: 4000}).catch(e=>console.log(e.message)))
-
     } catch (e) {
         console.log(String(e.stack).bgRed)
         return message.channel.send(new MessageEmbed()

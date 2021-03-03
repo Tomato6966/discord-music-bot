@@ -3,12 +3,12 @@ const config = require("../../botconfig/config.json");
 const ee = require("../../botconfig/embed.json");
 const { format } = require("../../handlers/functions")
 module.exports = {
-    name: "seek",
+    name: "autoplay",
     category: "Music",
-    aliases: [""],
+    aliases: ["ap"],
     cooldown: 4,
-    useage: "seek <Pos. in Seconds>",
-    description: "Seek to a position in the track <Seconds>",
+    useage: "autoplay",
+    description: "Toggles Autoplay",
     run: async (client, message, args, cmduser, text, prefix) => {
     try{
       const { channel } = message.member.voice; // { message: { member: { voice: { channel: { name: "Allgemein", members: [{user: {"username"}, {user: {"username"}] }}}}}
@@ -32,30 +32,11 @@ module.exports = {
           .setTitle(`❌ ERROR | Please join **my** Channel first`)
           .setDescription(`Channelname: \`${message.guild.me.voice.channel.name}\``)
         );
-      if(!args[0])
-        return message.channel.send(new MessageEmbed()
-          .setColor(ee.wrongcolor)
-          .setFooter(ee.footertext, ee.footericon)
-          .setTitle(`❌ ERROR | You didn't provided a Time you want to seek to!`)
-          .setDescription(`Usage: \`${prefix}seek 10\``)
-        )
-
-      let seektime = Number(args[0]);
-
-      if(seektime < 0)
-        seektime = 0;
-
-      if(seektime >= client.distube.getQueue(message).songs[0].duration)
-        seektime = client.distube.getQueue(message).songs[0].duration - 1;
-
-      client.distube.seek(message, seektime*1000);
-
       message.channel.send(new MessageEmbed()
         .setColor(ee.color)
         .setFooter(ee.footertext,ee.footericon)
-        .setTitle(`⏩ Seeking to: ${format(seektime)}`)
+        .setTitle(`✅ Successfully toggled Autoplay! It's now: ${client.distube.toggleAutoplay(message) ? "ON" : "OFF"}`)
       ).then(msg=>msg.delete({timeout: 4000}).catch(e=>console.log(e.message)))
-
     } catch (e) {
         console.log(String(e.stack).bgRed)
         return message.channel.send(new MessageEmbed()
