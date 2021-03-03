@@ -60,6 +60,24 @@ After that I will cover some more backend stuff, like adding reactions, filters,
 
     - Source Code: [Click Here](https://github.com/Tomato6966/discord-music-bot/tree/7)
 
+- **8. Seeking, forward and rewind command!**
+
+    - Tutorial Video: [Click Here](https://www.youtube.com/watch?v=3F0w6QRMbFI)
+
+    - Source Code: [Click Here](https://github.com/Tomato6966/discord-music-bot/tree/8)
+
+- **9. Toggel Autoplay and Nowplaying**
+
+    - Tutorial Video: [Click Here](https://www.youtube.com/watch?v=QuslcAJ5xds)
+
+    - Source Code: [Click Here](https://github.com/Tomato6966/discord-music-bot/tree/9)
+
+- **10. Filters, like bassboost, nightcore, 8d, vaporwave, ...**
+
+    - Tutorial Video: [Click Here](https://www.youtube.com/watch?v=35SM_Xw7KQg)
+
+    - Source Code: [Click Here](https://github.com/Tomato6966/discord-music-bot/tree/10)
+
 # SUPPORT ME
 BY [INVITING MY PUBLIC MUSIC BOT 24/7 UPTIME!](https://discord.com/api/oauth2/authorize?client_id=742672021422342165&permissions=8&scope=bot)
 
