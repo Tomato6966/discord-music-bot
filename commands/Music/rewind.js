@@ -1,13 +1,14 @@
 const { MessageEmbed } = require("discord.js");
 const config = require("../../botconfig/config.json");
 const ee = require("../../botconfig/embed.json");
+const { format } = require("../../handlers/functions")
 module.exports = {
-    name: "stop",
+    name: "rewind",
     category: "Music",
-    aliases: ["leave"],
+    aliases: ["rew"],
     cooldown: 4,
-    useage: "stop",
-    description: "Stops a track",
+    useage: "rewind <Time in Seconds>",
+    description: "Rewinds for a specific amount of Time",
     run: async (client, message, args, cmduser, text, prefix) => {
     try{
       const { channel } = message.member.voice; // { message: { member: { voice: { channel: { name: "Allgemein", members: [{user: {"username"}, {user: {"username"}] }}}}}
@@ -31,14 +32,28 @@ module.exports = {
           .setTitle(`❌ ERROR | Please join **my** Channel first`)
           .setDescription(`Channelname: \`${message.guild.me.voice.channel.name}\``)
         );
+      if(!args[0])
+        return message.channel.send(new MessageEmbed()
+          .setColor(ee.wrongcolor)
+          .setFooter(ee.footertext, ee.footericon)
+          .setTitle(`❌ ERROR | You didn't provided a Time you want to seek to!`)
+          .setDescription(`Usage: \`${prefix}seek 10\``)
+        )
+
+      let queue = client.distube.getQueue(message);
+      let seektime = queue.currentTime - Number(args[0]) * 1000;
+      if(seektime < 0)
+        seektime = 0;
+      if(seektime >= queue.songs[0].duration * 1000 - queue.currentTime)
+        seektime = 0;
+
+      client.distube.seek(message, seektime);
 
       message.channel.send(new MessageEmbed()
         .setColor(ee.color)
         .setFooter(ee.footertext,ee.footericon)
-        .setTitle("⏹ Stopped playing Music and left your Channel")
+        .setTitle(`⏩ Forwarded for \`${args[0]} Seconds\` to: ${format(seektime)}`)
       ).then(msg=>msg.delete({timeout: 4000}).catch(e=>console.log(e.message)))
-
-      client.distube.stop(message);
     } catch (e) {
         console.log(String(e.stack).bgRed)
         return message.channel.send(new MessageEmbed()

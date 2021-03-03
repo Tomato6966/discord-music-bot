@@ -7,7 +7,7 @@ module.exports = {
     category: "Music",
     aliases: ["r"],
     cooldown: 4,
-    useage: "shuffle",
+    useage: "resume",
     description: "Resumes the Song",
     run: async (client, message, args, cmduser, text, prefix) => {
     try{
