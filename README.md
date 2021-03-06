@@ -8,6 +8,8 @@ First I will explain in several videos how to do specific Commands from skip to 
 
 After that I will cover some more backend stuff, like adding reactions, filters, how to use cookies, Spotify playlist supports etc. etc.
 
+## [**DISCORD SUPPORT SERVER INVITE**](https://support.milrato.eu)
+
 # TUTORIAL LISTS
 
 - **1. BASICS - play - skip - stop ...**
