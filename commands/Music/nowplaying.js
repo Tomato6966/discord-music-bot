@@ -44,7 +44,7 @@ module.exports = {
         .addField("Views", `▶ ${track.views}`,true)
         .addField("Dislikes", `:thumbsdown: ${track.dislikes}`,true)
         .addField("Likes", `:thumbsup: ${track.likes}`,true)
-        .addField("Duration: ", createBar(queue.currentTime))
+        .addField("Duration: ", createBar(track.duration*1000, client.distube.getQueue(message).currentTime))
       ).then(msg=>msg.delete({timeout: 4000}).catch(e=>console.log(e.message)))
     } catch (e) {
         console.log(String(e.stack).bgRed)
